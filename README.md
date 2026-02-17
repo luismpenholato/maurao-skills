@@ -26,10 +26,7 @@ npx skills add luismpenholato/maurao-skills --skill dotnet-backend-clean-archite
 
 Para instalar globalmente e/ou em um agente específico, use as flags indicadas pelo CLI (ex.: `--global`, `--agent`).
 
-### Ver no skills.sh
-
-- **Repositório:** [skills.sh/luismpenholato/maurao-skills](https://skills.sh/luismpenholato/maurao-skills)
-- **Skill .NET:** [skills.sh/luismpenholato/maurao-skills/dotnet-backend-clean-architecture](https://skills.sh/luismpenholato/maurao-skills/dotnet-backend-clean-architecture)
+A instalação é feita direto deste repositório no GitHub; o site [skills.sh](https://skills.sh) pode ter catálogo/indexação própria e nem todo repo público aparece lá.
 
 ## Estrutura do repositório
 
