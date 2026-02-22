@@ -1,4 +1,5 @@
 ---
+
 name: angular-frontend-clean-architecture
 description: Angular 21 standalone frontend with Clean Architecture, vertical slice (pages by feature), signals, OnPush, and ng-zorro. Use when creating or refactoring Angular apps, adding pages, components, services, directives, pipes, or when the user mentions Angular frontend, standalone components, or signals.
 ---

@@ -1,4 +1,5 @@
 ---
+
 name: dotnet-backend-clean-architecture
 description: Clean Architecture + CQRS (MediatR) for .NET backend APIs. Builds and maintains APIs with vertical slice (Features), Commands/Queries, handlers, validators, repositories. Use when creating or refactoring .NET APIs, adding endpoints, commands, queries, entities, or when the user mentions Clean Architecture, CQRS, or MediatR.
 ---
