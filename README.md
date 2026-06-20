@@ -1,14 +1,14 @@
-# maurao-skills
+# Maurao Skills
 
-Skills repository for use with agents (Codex, Cursor, etc.) via the [skills.sh](https://skills.sh) ecosystem.
+Reusable AI agent skills for software engineering, architecture, automation, and developer workflows.
 
 ## Available skills
 
 | Skill | Description |
 |-------|-------------|
-| [dotnet-backend-clean-architecture](skills/dotnet-backend-clean-architecture/) | Clean Architecture + CQRS (MediatR) for .NET backends: vertical slice, Commands/Queries, handlers, validators, repositories. |
-| [angular-frontend-clean-architecture](skills/angular-frontend-clean-architecture/) | Angular 21 standalone: features, signals, ng-zorro, theme, drawer portal, basic SEO. |
-| [react-nextjs-antd-clean-architecture](skills/react-nextjs-antd-clean-architecture/) | React 19 + Next.js 16 App Router, Ant Design, TanStack Query, `shared/theme/`, `/products` routes, basic SEO. |
+| [dotnet-backend-clean-architecture](skills/dotnet-backend-clean-architecture/) | Backend architecture and implementation guidance for .NET APIs. |
+| [angular-frontend-clean-architecture](skills/angular-frontend-clean-architecture/) | Frontend architecture and implementation guidance for Angular applications. |
+| [react-nextjs-antd-clean-architecture](skills/react-nextjs-antd-clean-architecture/) | Frontend architecture and implementation guidance for React, Next.js, and Ant Design applications. |
 
 ## How to install
 
