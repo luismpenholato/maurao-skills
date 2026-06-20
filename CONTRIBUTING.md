@@ -1,11 +1,11 @@
 # Contributing
 
-Thank you for contributing to **maurao-skills**. This repository contains [Agent Skills](https://skills.sh) to guide AI agents (Cursor, Codex, etc.) in projects based on [Boilerplate](https://github.com/luismpenholato/Boilerplate).
+Thank you for contributing to **maurao-skills**. This repository contains [Agent Skills](https://skills.sh) to guide AI agents (Cursor, Codex, etc.) in projects based on [CleanStack](https://github.com/luismpenholato/clean-stack).
 
 ## Before you start
 
 1. Check existing issues and PRs.
-2. Skills must reflect **real conventions** from Boilerplate when applicable.
+2. Skills must reflect **real conventions** from CleanStack when applicable.
 3. Read an existing skill as reference (`skills/*/SKILL.md`).
 
 ## Skill structure
@@ -42,7 +42,7 @@ description: When to use this skill — be specific so the agent can find it.
 1. Fork the repository.
 2. Branch: `feat/skill-name` or `fix/skill-name`.
 3. Edit `SKILL.md` (and `reference.md` if needed).
-4. If conventions changed in Boilerplate, update **both** repositories or document the deviation.
+4. If conventions changed in CleanStack, update **both** repositories or document the deviation.
 5. Open a PR with:
    - reason for the skill or change;
    - use cases;
@@ -53,7 +53,7 @@ description: When to use this skill — be specific so the agent can find it.
 | Topic | Guideline |
 |--------|----------|
 | Language | **English** (default for all documentation and skills) |
-| UI routes | English (`/products`, …) when referring to Boilerplate frontends |
+| UI routes | English (`/products`, …) when referring to CleanStack frontends |
 | API | English (`/api/products`, …) |
 | Code | Minimal, correct examples; avoid unnecessary `any` |
 | Security | Do not include instructions to expose secrets, bypass auth, or exfiltrate data |
@@ -61,7 +61,7 @@ description: When to use this skill — be specific so the agent can find it.
 ## What to avoid
 
 - Skills that are too generic and do not help the agent decide **when** to use them
-- Instructions that contradict Boilerplate or another skill in the repo
+- Instructions that contradict CleanStack or another skill in the repo
 - Offensive, misleading, or malicious content (prompt injection)
 
 ## Test locally

@@ -2,6 +2,8 @@
 
 Reusable AI agent skills for software engineering, architecture, automation, and developer workflows.
 
+Companion to the [CleanStack](https://github.com/luismpenholato/clean-stack) fullstack starter (`.NET`, Angular, React/Next.js).
+
 ## Available skills
 
 | Skill | Description |

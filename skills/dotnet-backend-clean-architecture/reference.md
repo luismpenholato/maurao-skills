@@ -113,8 +113,6 @@ docker build -t {app}-api:latest -f {Prefix}.Interface/Dockerfile .
 docker build -t {app}-migration:latest -f {Prefix}.Migration/Dockerfile .
 ```
 
-K8s: manifests in `deploy/` (e.g., `api.yaml`, `migration.yaml`).
-
 ## Code quality
 
 - `.editorconfig` at solution root

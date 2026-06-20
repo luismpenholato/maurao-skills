@@ -35,14 +35,14 @@ Solution at backend root: `{Solution}.sln` and `.editorconfig` (adjust names to 
 {solution-root}/
 ├── {Solution}.sln
 ├── .editorconfig
-├── Boilerplate.Interface/          # API (Controllers, Program, Middlewares)
-├── Boilerplate.Application/        # Features/ → Commands and Queries
-├── Boilerplate.Domain/             # Entities, Interfaces, Services
-├── Boilerplate.Infrastructure/     # EF Core, Repositories, UnitOfWork
-├── Boilerplate.CrossCutting/       # DTOs, Options, Helpers
-├── Boilerplate.CrossCutting.IOC/   # ConfigureBindings* (DI)
-├── Boilerplate.Migration/          # FluentMigrator (console)
-└── Boilerplate.Tests/              # Features/ mirroring Application
+├── CleanStack.Interface/          # API (Controllers, Program, Middlewares)
+├── CleanStack.Application/        # Features/ → Commands and Queries
+├── CleanStack.Domain/             # Entities, Interfaces, Services
+├── CleanStack.Infrastructure/     # EF Core, Repositories, UnitOfWork
+├── CleanStack.CrossCutting/       # DTOs, Options, Helpers
+├── CleanStack.CrossCutting.IOC/   # ConfigureBindings* (DI)
+├── CleanStack.Migration/          # FluentMigrator (console)
+└── CleanStack.Tests/              # Features/ mirroring Application
 ```
 
 Dependency rule: **Interface** → Application, CrossCutting, CrossCutting.IOC. **Application** and **Infrastructure** reference **Domain**. **Application** does not reference Infrastructure.
@@ -85,14 +85,14 @@ Dependency rule: **Interface** → Application, CrossCutting, CrossCutting.IOC. 
 
 **Tests**
 
-- [ ] In `Boilerplate.Tests/Features/Orders/` mirroring Application:
+- [ ] In `CleanStack.Tests/Features/Orders/` mirroring Application:
   - `{Command}HandlerTests.cs` / `{Query}HandlerTests.cs` — NSubstitute; mock `IValidator<T>` in handlers.
   - `{Command}ValidatorTests.cs` — real validator + `Validate()`.
 - [ ] `[Trait("Category", "Orders")]`.
 
 **Migration**
 
-- [ ] New FluentMigrator class in `Boilerplate.Migration/Migrations/` (e.g., `Mig_YYYYMMDDHHMMSS_CreateOrders.cs`).
+- [ ] New FluentMigrator class in `CleanStack.Migration/Migrations/` (e.g., `Mig_YYYYMMDDHHMMSS_CreateOrders.cs`).
 - [ ] Keep aligned with EF `Persistence/Map/`.
 
 ## External HTTP integration (Products pattern)
@@ -149,7 +149,7 @@ services.AddValidatorsFromAssemblyContaining<CreateProductValidator>();
 
 ## Conventions
 
-- Namespaces: `Boilerplate.Application.Features.{Feature}.Commands.{CommandName}` and `...Queries.{QueryName}`.
+- Namespaces: `CleanStack.Application.Features.{Feature}.Commands.{CommandName}` and `...Queries.{QueryName}`.
 - One command/query **per folder** in Commands/ or Queries/.
 - API DTOs in **CrossCutting.Dto**; entities in Domain.
 - New bindings in **CrossCutting.IOC** (`ConfigureBindings*.cs`).
