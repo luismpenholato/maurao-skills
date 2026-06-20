@@ -1,39 +1,43 @@
 # maurao-skills
 
-Repositório de skills para uso com agentes (Codex, Cursor, etc.) via ecossistema [skills.sh](https://skills.sh).
+Skills repository for use with agents (Codex, Cursor, etc.) via the [skills.sh](https://skills.sh) ecosystem.
 
-## Skills disponíveis
+## Available skills
 
-| Skill | Descrição |
-|-------|-----------|
-| [dotnet-backend-clean-architecture](skills/dotnet-backend-clean-architecture/) | Clean Architecture + CQRS (MediatR) para backends .NET: vertical slice, Commands/Queries, handlers, validators, repositórios. |
-| [angular-frontend-clean-architecture](skills/angular-frontend-clean-architecture/) | Angular 21 standalone com estrutura por features, signals, OnPush e ng-zorro: páginas, componentes, services, diretivas, pipes. |
+| Skill | Description |
+|-------|-------------|
+| [dotnet-backend-clean-architecture](skills/dotnet-backend-clean-architecture/) | Clean Architecture + CQRS (MediatR) for .NET backends: vertical slice, Commands/Queries, handlers, validators, repositories. |
+| [angular-frontend-clean-architecture](skills/angular-frontend-clean-architecture/) | Angular 21 standalone: features, signals, ng-zorro, theme, drawer portal, basic SEO. |
+| [react-nextjs-antd-clean-architecture](skills/react-nextjs-antd-clean-architecture/) | React 19 + Next.js 16 App Router, Ant Design, TanStack Query, `shared/theme/`, `/products` routes, basic SEO. |
 
-## Como instalar
+## How to install
 
-Requisito: [Node.js](https://nodejs.org/) (para usar `npx`).
+Requirement: [Node.js](https://nodejs.org/) (to use `npx`).
 
-### Listar skills do repositório
+### List skills in the repository
 
 ```bash
 npx skills add luismpenholato/maurao-skills --list
 ```
 
-### Instalar um skill
+### Install a skill
 
 ```bash
-# Backend .NET
+# .NET backend
 npx skills add luismpenholato/maurao-skills --skill dotnet-backend-clean-architecture
 
-# Frontend Angular
+# Angular frontend
 npx skills add luismpenholato/maurao-skills --skill angular-frontend-clean-architecture
+
+# React + Next.js frontend
+npx skills add luismpenholato/maurao-skills --skill react-nextjs-antd-clean-architecture
 ```
 
-Para instalar globalmente e/ou em um agente específico, use as flags indicadas pelo CLI (ex.: `--global`, `--agent`).
+To install globally and/or for a specific agent, use the flags shown by the CLI (e.g., `--global`, `--agent`).
 
-A instalação é feita direto deste repositório no GitHub; o site [skills.sh](https://skills.sh) pode ter catálogo/indexação própria e nem todo repo público aparece lá.
+Installation is done directly from this GitHub repository; [skills.sh](https://skills.sh) may have its own catalog/indexing and not every public repo appears there.
 
-## Estrutura do repositório
+## Repository structure
 
 ```
 maurao-skills/
@@ -44,10 +48,21 @@ maurao-skills/
     angular-frontend-clean-architecture/
       SKILL.md
       reference.md
+    react-nextjs-antd-clean-architecture/
+      SKILL.md
+      reference.md
 ```
 
-Cada skill fica em uma pasta com `SKILL.md` (frontmatter YAML + instruções). Arquivos em `reference.md` ou `references/` são opcionais.
+Each skill lives in a folder with `SKILL.md` (YAML frontmatter + instructions). Files in `reference.md` or `references/` are optional.
 
-## Licença
+## Community
 
-[MIT](LICENSE) — livre para uso, modificação e distribuição. Só mantenha o aviso de copyright e da licença.
+| Document | Description |
+|-----------|-------------|
+| [Contributing](CONTRIBUTING.md) | How to add or change skills |
+| [Security](SECURITY.md) | Report malicious or unsafe content |
+| [License](LICENSE) | MIT License |
+
+## License
+
+[MIT](LICENSE) — free to use, modify, and distribute. Keep the copyright and license notice.

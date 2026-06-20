@@ -1,40 +1,97 @@
-# Referência – Estrutura e fluxo
+# Reference – Structure and flow
 
-## Pastas e responsabilidades
+Supporting document for the `angular-frontend-clean-architecture` skill.
 
-| Pasta / arquivo | Quando usar |
+## Folders and responsibilities
+
+| Folder / file | When to use |
 |-----------------|-------------|
-| **layout/** | Alterar shell da aplicação (header, menu, drawer, router-outlet). |
-| **pages/<feature>/** | Nova área do app = nova pasta (ex.: orders). Inclui model, service, list e form. |
-| **shared/components/** | Componente usado em mais de uma página ou UI genérica (page-header, loading). |
-| **shared/directives/** | Comportamento reutilizável em elementos (autofocus, máscara de moeda). |
-| **shared/pipes/** | Transformação reutilizável no template (truncate, currency). |
-| **shared/services/** | Estado ou utilidade global (loading, layout, tema). |
-| **shared/guards/** | Proteção de rotas (auth, roles). |
-| **shared/interceptors/** | Interceptação de HTTP (erro global, token). |
-| **app.routes.ts** | Novas rotas ou guards. |
+| **layout/** | Shell (header, menu, drawer, router-outlet). |
+| **pages/\<feature\>/** | New area = new folder (model, service, screens). |
+| **shared/components/** | Generic UI (page-header, loading, loading-overlay, splash-screen). |
+| **shared/directives/** | Reusable behavior (autofocus, currency-mask). |
+| **shared/pipes/** | Template transformation (truncate). |
+| **shared/services/** | Global state (loading, layout, confirmation). |
+| **shared/guards/** | `CanActivateFn` (auth, roles). |
+| **shared/interceptors/** | Global HTTP (error, token). |
+| **shared/utils/** | Pure functions (error parser). |
+| **src/styles/** | Design system: `--app-*` tokens, ng-zorro overrides. |
+| **src/environments/** | `apiBaseUrl` per environment. |
+| **app.routes.ts** | Routes and guards. |
 
-## Fluxo de uma tela (ex.: listar produtos)
+## Screen flow (example: list products)
 
-1. **Rotas:** `app.routes.ts` define `path: 'produtos'` → `ProductsListComponent`, com `canActivate: [authGuard]` se necessário.
-2. **Componente:** `ProductsListComponent` usa `inject(ProductService)`, signals para `allProducts`, `loading`, `searchTerm`, `statusFilter`, e `computed` para `filteredProducts`.
-3. **Service:** `ProductService` chama `this.http.get<Product[]>(this.baseUrl)` e expõe `Observable`.
-4. **Template:** `@if (loading())` mostra spinner; `@else` com `@for (item of productTable.data; track item.id)` para a tabela; ações (editar, excluir) chamam métodos do componente que usam o service.
+1. **Routes:** products listing — `path: 'products'` → `ProductsListComponent`, `canActivate: [authGuard]`.
+2. **Component:** `inject(ProductService)`, signals (`loading`, `items`), `computed` for filters.
+3. **Service:** `http.get<Product[]>(baseUrl)`.
+4. **Template:** `@if (loading())` → spinner; `@else` → `@for (item of items(); track item.id)`.
 
-## Conteúdo por pasta
+## Content per folder
 
-- **layout/main-layout:** template com header, drawer, `<router-outlet>`, injeção de `LayoutService` (tema, drawer visível).
-- **pages/<feature>:** `*.model.ts`, `*.service.ts`, `<feature>-list/` (component + template + styles + spec), `<feature>-form/` quando houver CRUD com formulário.
-- **shared/components:** um diretório por componente (page-header, loading, loading-overlay, splash-screen).
-- **shared/directives:** um diretório por diretiva (autofocus, currency-mask); usar `host` para eventos e `input()` para opções.
-- **shared/pipes:** um diretório por pipe (truncate).
-- **shared/services:** serviços injetáveis globais (loading.service, layout.service).
-- **shared/guards:** funções ou classes que implementam `CanActivateFn` / equivalente.
-- **shared/interceptors:** `HttpInterceptor` para tratamento global de erro ou headers.
+- **layout/main-layout:** header, drawer, `<router-outlet>`; may use `LayoutService`.
+- **pages/\<feature\>:** `*.model.ts`, `*.service.ts`, `*-list/`, `*-form/` (component + html + scss + spec).
+- **shared/components:** one directory per component.
+- **shared/directives:** one directory per directive; `host` + `input()`.
+- **shared/interceptors:** `HttpInterceptorFn` or class interceptor.
 
-## Ambiente e API
+## Environment and API
 
-- **environments/environment.ts:** `apiBaseUrl` apontando para o backend (dev/test/prod).
-- Serviços de página montam a URL como `` `${environment.apiBaseUrl}/api/<recurso>` ``.
+```typescript
+// src/environments/environment.development.ts
+export const environment = {
+  production: false,
+  apiBaseUrl: 'http://localhost:5000',
+};
+```
 
-Manter essa estrutura permite escalar com novas features (nova pasta em pages/ + rotas + service) sem misturar lógica de domínio com shared.
+Services: `` `${environment.apiBaseUrl}/api/<resource>` ``.
+
+## Routes (CRUD pattern)
+
+| Screen | UI path |
+|------|--------|
+| Listing | `products` |
+| Create | `products/new` |
+| Edit | `products/:id/edit` |
+
+REST API: `/api/products`. Drawer menu: **Products** item → `/products`.
+
+## Drawer and theme
+
+- Drawer: `nzWrapClassName="app-drawer"`, content in `*nzDrawerContent`.
+- Side menu: `.drawer-menu` with global CSS `.app-drawer .drawer-menu` (drawer portaled to `body`).
+- Light/dark theme: `LayoutService` + `body.theme-dark` + `_tokens.scss`.
+
+## SEO (basic)
+
+- `index.html`: meta description, Open Graph, `noindex` (admin app)
+- `app.routes.ts`: `title` + `data.description` per route
+- `AppTitleStrategy`: updates `<title>` and meta tags on each navigation
+
+## Tests
+
+- Runner: `ng test` (Vitest integrated with Angular CLI).
+- Specs next to the file: `*.component.spec.ts`, `*.service.spec.ts`.
+- Do not test ng-zorro internal implementation — focus on component/service logic.
+
+## Deploy (optional)
+
+```bash
+docker build -t {app}-frontend:latest .
+docker run -p 80:80 {app}-frontend:latest
+```
+
+Multi-stage pattern: Node build + nginx.
+
+## Common errors
+
+| Error | Fix |
+|------|----------|
+| Business logic in `app.routes.ts` | Move to `pages/` |
+| Hardcoded API URL | Use `environment.apiBaseUrl` |
+| `@Input()` in new code | Prefer `input()` |
+| `ngClass` / `ngStyle` | Use `[class.x]` / `[style.x]` |
+| Entire feature in `shared/` | Domain stays in `pages/` |
+| CSS `.app-main-layout .drawer-menu` has no effect | Drawer portaled — use `.app-drawer .drawer-menu` |
+
+Keeping **pages/** per feature and **shared/** only for reusable code avoids coupling and scales well.
