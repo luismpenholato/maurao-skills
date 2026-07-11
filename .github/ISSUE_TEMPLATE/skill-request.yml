@@ -1,0 +1,60 @@
+name: Skill request
+description: Propose a new AI Agent Skill for this collection.
+title: "[Skill request]: "
+labels:
+  - skill-request
+body:
+  - type: input
+    id: proposed-name
+    attributes:
+      label: Proposed skill name
+      description: Folder name in kebab-case (e.g., `dotnet-backend-clean-architecture`).
+      placeholder: my-new-skill
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem solved
+      description: What recurring task or decision should this skill guide?
+    validations:
+      required: true
+
+  - type: input
+    id: stack
+    attributes:
+      label: Target stack
+      placeholder: .NET 10, Angular 21, React 19, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: triggers
+    attributes:
+      label: When should it be triggered?
+      description: User prompts, file patterns, or scenarios that should activate the skill.
+    validations:
+      required: true
+
+  - type: textarea
+    id: cleanstack
+    attributes:
+      label: Relation to CleanStack
+      description: Which CleanStack area does it complement, or why is it standalone?
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Usage examples
+      description: Short prompt → expected behavior examples.
+    validations:
+      required: true
+
+  - type: textarea
+    id: overlap
+    attributes:
+      label: Overlap risks
+      description: Could this duplicate or conflict with an existing skill?

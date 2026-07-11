@@ -7,20 +7,13 @@ description: Angular 21 standalone frontend with Clean Architecture, vertical sl
 
 Guide for creating and maintaining Angular frontends with **features** structure (vertical slice), standalone components, signals, and ng-zorro-antd.
 
-## When to use
+## When to use this skill
 
 - Add a new **page/feature** (new folder in `pages/` with listing, form, service, models).
 - Create **component** in `shared/components/`, **directive** in `shared/directives/`, **pipe** in `shared/pipes/`.
 - Add **service** (HTTP, global state), **guard**, **interceptor**.
 - Define or change **routes** in `app.routes.ts`.
 - Review or refactor code to follow this skill's pattern.
-
-## When not to use
-
-- AngularJS or legacy non-Angular projects.
-- Codebases built on legacy NgModules without standalone components.
-- Applications that use another design system as the primary UI kit (e.g., Angular Material).
-- Library-only projects without routed pages or feature screens.
 
 ## Target stack
 
@@ -31,8 +24,6 @@ Guide for creating and maintaining Angular frontends with **features** structure
 | RxJS 7 | HTTP and streams |
 | TypeScript 5.9 | Typing |
 | Vitest 4 | Tests via `ng test` |
-
-This skill uses **ng-zorro-antd** as the default design system, matching [CleanStack](https://github.com/luismpenholato/clean-stack). Do not force ng-zorro on projects that already use Angular Material or another UI kit — adapt the patterns while keeping the feature structure.
 
 ## Project structure
 
@@ -140,14 +131,6 @@ export const authGuard: CanActivateFn = () => true; // replace with real auth
 - HTTP: `catchError`, `finalize`, `timeout`; feedback via `NzMessageService`.
 - Loading: signal in component or `LoadingService` / global overlay in `shared/services/`.
 - Global errors: interceptor in `shared/interceptors/`.
-
-## Anti-patterns
-
-- Business logic in `app.routes.ts` instead of page components or services.
-- Hardcoded API URLs instead of `environment.apiBaseUrl`.
-- Using `@Input()` / `@Output()` in new standalone components instead of `input()` / `output()`.
-- Placing entire features in `shared/` instead of `pages/`.
-- Using `ngClass` / `ngStyle` when `[class.x]` / `[style.x]` suffices.
 
 ## Additional resources
 

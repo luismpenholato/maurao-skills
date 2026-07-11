@@ -67,11 +67,19 @@ description: When to use this skill — be specific so the agent can find it.
 ## Test locally
 
 ```bash
+npm ci
+npm run validate
 npx skills add luismpenholato/maurao-skills --list
 npx skills add luismpenholato/maurao-skills --skill skill-name
 ```
 
-Validate in the target agent (Cursor, etc.) that the skill is discovered and applied in the described scenarios.
+Validate in the target agent (Cursor, etc.) that the skill is discovered and applied in the described scenarios. Test installation with the Agent Skills CLI when possible.
+
+## Content guidelines
+
+- Write clear **triggers** in the frontmatter `description` so agents know when to activate the skill.
+- Do not duplicate rules between `SKILL.md` and `reference.md` — keep instructions in `SKILL.md` and long examples in `reference.md`.
+- Update [CHANGELOG.md](CHANGELOG.md) when adding skills or making notable changes.
 
 ## Report bugs
 

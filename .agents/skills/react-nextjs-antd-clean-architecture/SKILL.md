@@ -15,13 +15,6 @@ Skill for creating and maintaining React 19 + Next.js 16 frontends with feature 
 - Refactor React components to vertical slice
 - Define service, hook, schema, and route patterns
 
-## When not to use
-
-- React projects without Next.js.
-- Codebases on the Pages Router instead of App Router.
-- Projects where Tailwind or Shadcn is the primary design system.
-- Applications that use GraphQL instead of REST for data fetching.
-
 ## Expected structure
 
 ```txt
@@ -51,8 +44,6 @@ src/shared/        → components, providers, lib (api, auth, env), theme/
 10. Drawer/menu: `rootClassName="app-drawer"` + CSS `.app-drawer .drawer-menu` (portaled to body)
 11. SEO: `shared/lib/seo/metadata.ts` + metadata per route; `noindex` in admin app
 12. Forbidden: `any`, Axios directly in visual components; legacy redirects without need
-
-This skill uses **Ant Design** as the default design system, matching [CleanStack](https://github.com/luismpenholato/clean-stack). Do not force Ant Design on projects that already use another design system — adapt the feature structure and patterns instead.
 
 ## Ant Design + App Router
 
@@ -131,14 +122,6 @@ Component: `useForm` + `zodResolver` + `Controller` + Ant Design `Form.Item`.
 ## New feature — checklist
 
 1. types → 2. schema (+ test) → 3. service → 4. hooks → 5. components → 6. page → 7. route in app/
-
-## Anti-patterns
-
-- Business logic in `src/app/page.tsx` instead of feature pages.
-- Axios calls directly in visual components.
-- Scattered `process.env` access outside `shared/lib/env`.
-- Mixing Tailwind/Shadcn with Ant Design as co-primary design systems.
-- Hooks that return JSX instead of data and handlers.
 
 ## Reference
 

@@ -35,13 +35,7 @@ Security content fixes apply to the main branch (`main`) and the latest version 
 - Problematic excerpt and expected impact
 - Suggested fix (optional)
 
-## Response time (target)
-
-| Stage | Target timeline |
-|-------|-------------------|
-| Confirmation | 3 business days |
-| Triage | 7 business days |
-| Fix or content removal | based on severity |
+Reports may include malicious instructions, deliberate prompt injection, or examples that encourage committing secrets or bypassing authentication.
 
 ## Safe use of skills
 

@@ -1,0 +1,51 @@
+name: Skill correction
+description: Report incorrect or outdated instructions in an existing skill.
+title: "[Skill correction]: "
+labels:
+  - skill-correction
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Affected skill
+      placeholder: dotnet-backend-clean-architecture
+    validations:
+      required: true
+
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: Incorrect instruction
+      description: Quote or reference the problematic section.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current behavior
+      description: What does the agent or developer do today when following the skill?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Technical evidence
+      description: Links to CleanStack source, docs, or reproducible examples.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is affected and how severe is the issue?

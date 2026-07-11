@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "angular-frontend-clean-architecture": {
+      "source": "luismpenholato/maurao-skills",
+      "sourceType": "github",
+      "skillPath": "skills/angular-frontend-clean-architecture/SKILL.md",
+      "computedHash": "071dd373988de2254cd3672149cd0afef782b0f62e2f5e379cdd159c14b9bf98"
+    },
+    "dotnet-backend-clean-architecture": {
+      "source": "luismpenholato/maurao-skills",
+      "sourceType": "github",
+      "skillPath": "skills/dotnet-backend-clean-architecture/SKILL.md",
+      "computedHash": "69355459d7f8c3413220ad4f71e878fec7a56e877be37d273cd0e3148e5b48d0"
+    },
+    "react-nextjs-antd-clean-architecture": {
+      "source": "luismpenholato/maurao-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-nextjs-antd-clean-architecture/SKILL.md",
+      "computedHash": "e836c571fde1da8c929177afdbaccdb6b1a2b8f163f85d05a4dea71ff17ada56"
+    }
+  }
+}

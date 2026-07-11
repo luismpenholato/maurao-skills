@@ -1,0 +1,60 @@
+name: Bug report
+description: Report broken installation, links, validation errors, or undetected skills.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for broken installation, broken links, validator errors, or skills not being detected.
+
+  - type: input
+    id: skill
+    attributes:
+      label: Affected skill
+      description: Skill folder name, or "repository" if not skill-specific.
+      placeholder: dotnet-backend-clean-architecture
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Bug category
+      options:
+        - Broken installation
+        - Broken local link
+        - Validator error
+        - Skill not detected
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Commands, agent, and environment details.
+      placeholder: |
+        1. Run `npm run validate`
+        2. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        - Agent: Cursor
+        - Node.js: 20.x
+        - OS: Windows 11

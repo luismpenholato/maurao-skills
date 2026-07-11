@@ -1,0 +1,13 @@
+{
+  "name": "maurao-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable AI Agent Skills for CleanStack and modern software engineering.",
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
